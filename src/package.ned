@@ -35,9 +35,9 @@ network Network
             @display("p=153,119");
         }
     connections:
-        host.in_out <--> DatarateChannel <--> switch.ports++;
-        switch.ports++ <--> DatarateChannel <--> host1.in_out;
-        switch.ports++ <--> DatarateChannel <--> host3.in_out;
-        switch.ports++ <--> DatarateChannel <--> host2.in_out;
+        switch.ports++ <--> DatarateChannel {  datarate = default(100Mbps); }  <--> host.in_out;
+        switch.ports++ <--> DatarateChannel {  datarate = default(100Mbps); }  <--> host1.in_out;
+        switch.ports++ <--> DatarateChannel {  datarate = default(100Mbps); }  <--> host3.in_out;
+        switch.ports++ <--> DatarateChannel {  datarate = default(100Mbps); }  <--> host2.in_out;
 }
 
