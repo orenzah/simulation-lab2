@@ -1,6 +1,9 @@
 package lab2;
 
 
+import ned.DatarateChannel;
+
+
 @license(LGPL);
 
 
@@ -31,5 +34,10 @@ network Network
         switch: Switch {
             @display("p=153,119");
         }
+    connections:
+        host.in_out <--> DatarateChannel <--> switch.ports++;
+        switch.ports++ <--> DatarateChannel <--> host1.in_out;
+        switch.ports++ <--> DatarateChannel <--> host3.in_out;
+        switch.ports++ <--> DatarateChannel <--> host2.in_out;
 }
 
